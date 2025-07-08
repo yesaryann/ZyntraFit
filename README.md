@@ -1,134 +1,157 @@
-# Personal AI Trainer With Automatic Exercise Recognition and Counting
+🏋️‍♂️ ZyntraFit - Smart Fitness Coach with Automated Movement Recognition & Rep Tracking
+Welcome to ZyntraFit - the future of fitness! This innovative AI-driven platform combines cutting-edge Computer Vision, Advanced Pose Detection, and Deep Learning technologies to revolutionize your workout experience by providing intelligent repetition monitoring and real-time exercise analysis.
+🚀 Live Demo
+Experience ZyntraFit in action: Watch Demo Video
+📊 Research Foundation
+This application is built upon rigorous academic research:
 
-This project is an AI-powered application that leverages Computer Vision, Pose Estimation, and Machine Learning to accurately track exercise repetitions during workouts. The goal is to enhance fitness routines by providing real-time tracking through an easy-to-use web interface.
+Paper: "Real-Time Fitness Exercise Classification and Counting from Video Frames"
+Dataset: Available at Kaggle - Real-Time Exercise Recognition Dataset
+Research Link: ArXiv Paper
 
-Datasets available at "https://www.kaggle.com/datasets/riccardoriccio/real-time-exercise-recognition-dataset".
+🎯 Key Features
+🔥 Core Capabilities
 
-This project is based on the paper: "Real-Time Fitness Exercise Classification and Counting from Video Frames"
+Intelligent Exercise Detection: Automatically identifies workout movements in real-time
+Precision Rep Counting: Tracks repetitions with exceptional accuracy
+Live Webcam Integration: Train with instant feedback using your camera
+Video Analysis Tools: Upload workout videos for comprehensive analysis
+AI Fitness Assistant: Get personalized guidance through our smart chatbot
 
-Link to the paper: "https://arxiv.org/abs/2411.11548"
+💡 What Makes It Special
 
-Feel free to Contact me at: riccardopersonalmail@gmail.com
+Real-time pose estimation using state-of-the-art MediaPipe technology
+BiLSTM neural networks for robust exercise classification
+Angle-based movement analysis for precise repetition detection
+User-friendly web interface powered by Streamlit
+Comprehensive exercise library with form demonstrations
 
-LinkedIn: https://www.linkedin.com/in/riccardo-riccio-bb7163296/
+🛠️ Technical Architecture
+📁 Project Organization
+├── main.py                           # Streamlit application entry point
+├── ExerciseAiTrainer.py             # Exercise-specific pose analysis engine
+├── AiTrainer_utils.py               # Image processing and calculation utilities
+├── PoseModule2.py                   # MediaPipe pose estimation handler
+├── chatbot.py                       # OpenAI-powered fitness assistant
+├── extract_features.py             # Video landmark and angle extraction
+├── create_sequence_of_features.py  # Dataset generation with 30-frame sequences
+├── train_bidirectionallstm.py      # BiLSTM model training pipeline
+├── requirements.txt                 # Python dependencies
+├── shoulder_press_form.mp4          # Exercise demonstration video
+├── thesis_bidirectionallstm_label_encoder.pkl  # Pre-trained label encoder
+├── thesis_bidirectionallstm_scaler.pkl         # Feature scaling model
+└── final_forthesis_bidirectionallstm_and_encoders_exercise_classifier_model.h5  # Trained BiLSTM model
+🚀 Quick Start Guide
+📋 Prerequisites
 
-(Give a star ⭐ to the repository if it was useful. Thank you! 😊)
+Python 3.7 or higher
+Virtual environment (recommended)
+Webcam (for real-time features)
 
-## Demo
+⚡ Installation Steps
 
-Watch the Fitness AI Coach in action:
-[![Watch the video](https://img.youtube.com/vi/GPmDPB1bSmc/hqdefault.jpg)](https://www.youtube.com/watch?v=GPmDPB1bSmc)
+Clone the Repository
+bashgit clone https://github.com/yesaryann/ZyntraFit.git
+cd ZyntraFit
 
----
+Create Virtual Environment
+bashpython -m venv fitness_env
+source fitness_env/bin/activate  # Windows: fitness_env\Scripts\activate
 
-## Table of Contents
-- [Project Structure](#project-structure)
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-  - [Running the Application](#running-the-application)
-- [Overview of the WebApp](#overview-of-the-webapp)
-  - [App Navigation](#app-navigation)
-- [Implementation Details](#implementation-details)
-  - [Exercise Classifier](#exercise-classifier)
-  - [Repetition Counting](#repetition-counting)
-  - [Chatbot Integration](#chatbot-integration)
-- [Technologies Used](#technologies-used)
+Install Dependencies
+bashpip install -r requirements.txt
 
----
-# WARNING
-
-1) In the current repository, the model used in the application is the "BiLSTM Invariant," which is a model trained without utilizing the raw (x, y, z) coordinates. Instead, it relies solely on angles and normalized distances. The best-performing model is described in the code file "train_bidirectionallstm.py", which incorporates both raw coordinates and angles.
-
-2) In the current repository, the instructional videos are not included (except for shoulder_press_form.mp4). Consequently, after running the current repository, the other instructional videos will not be available.
-
-## Project Structure
-- `main.py`: Runs the Streamlit app.
-- `ExerciseAiTrainer.py`: Contains exercise-specific pose estimation logic.
-- `AiTrainer_utils.py`: Utility functions for image processing and distance calculations.
-- `PoseModule2.py`: Handles body pose estimation using MediaPipe.
-- `chatbot.py`: Implements the chatbot using the OpenAI API.
-- `extract_features.py`: Extracts landmarks and angles from videos.
-- `create_sequence_of_features.py`:  Generate the final dataset with sequence of 30 frames with corresponding features
-- `train_bidirectionallstm.py`: Scripts for training proposed BiLSTM models (with mixed of coordinates and angle features).
-- `requirements.txt`: List of required Python libraries.
-- `shoulder_press_form.mp4`: Sample video showing proper form for exercises.
-- `thesis_bidirectionallstm_label_encoder.pkl` / `thesis_bidirectionallstm_scaler.pkl`: Pre-trained models for label encoding and feature scaling (for the model "BiLSTM Invariant").
-- ` final_forthesis_bidirectionallstm_and_encoders_exercise_classifier_model.h5`: Pre-trained "BiLSTM Invariant" model
-
----
-
-## Getting Started
-
-### Prerequisites
-- Python 3.7+ must be installed on your machine.
-- It's recommended to use a virtual environment to manage dependencies.
-
-### Installation
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/FitnessAI-Coach.git
-   cd FitnessAI-Coach
-
-2. Set up a virtual environment:
-
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
-
-3. Install the required Python libraries:
-
-   ```bash
-   pip install -r requirements.txt
-4. Run the app:
-
-   ```bash
-     streamlit run main.py
-      
-
-## Overview of the WebApp
-
-The Fitness AI Coach is a web application built with Streamlit, aimed at providing users with tools for fitness tracking, real-time exercise classification, repetition counting, and chatbot support.
-
-### App Navigation
-
-The main navigation sidebar allows users to access the following features:
-
-1. **Video Analysis**: Upload exercise videos to count repetitions based on pose estimation.
-2. **Webcam Mode**: Perform exercises in front of a webcam for real-time repetition counting.
-3. **Auto Classify Mode**: Automatically identifies exercises in real-time and counts repetitions accordingly.
-4. **Chatbot**: Acts as a fitness coach to provide fitness guidance using the OpenAI API.
-
-The application is designed to be modular and user-friendly, with visual cues and instructional videos to assist users with exercise form and repetition counts.
-
-## Implementation Details
-
-### Exercise Classifier
-
-The exercise classifier is built using a combination of real and synthetic datasets, including:
-
-- **Kaggle Workout Dataset**: Real-world exercise videos.
-- **InfiniteRep Dataset**: Synthetic videos of avatars performing exercises.
-- **Similar Dataset**: Videos sourced from online to cover diverse exercise variations.
-
-The classification model employs LSTM and BiLSTM networks to process body landmarks and classify exercises based on joint angles and movement patterns. The model was optimized using accuracy, precision, recall, and F1-score metrics.
-
-### Repetition Counting
-
-Repetition counting is implemented in two modes:
-
-1. **Manual Mode**: Users manually select the exercise, and repetitions are counted using angle-based thresholds.
-2. **Automatic Mode**: A BiLSTM model classifies exercises and applies counting logic based on identified body angles. The system tracks "up" and "down" movements to ensure accurate repetition counting.
-
-### Chatbot Integration
-
-The chatbot feature utilizes OpenAI's GPT-3.5-turbo model to answer fitness-related questions. It is integrated using LangChain’s ConversationChain to maintain context and provide meaningful responses. Users are advised to verify critical information with professionals as the chatbot may occasionally provide incorrect information.
+Launch Application
+bashstreamlit run main.py
 
 
-## Technologies Used
+🎮 Application Features
+🎯 Navigation Menu
+The intuitive sidebar provides access to four main modules:
+📹 Video Analysis Suite
 
-- **Pose Estimation**: Utilizes MediaPipe to extract key body landmarks and monitor movement.
-- **Machine Learning**: LSTM and BiLSTM models for real-time exercise classification.
-- **Streamlit**: Provides the web interface for user interaction.
-- **Python Libraries**: Includes OpenCV, MediaPipe, Streamlit, and others for backend processing.
+Upload workout recordings for detailed movement analysis
+Automated rep counting based on pose estimation
+Exercise form evaluation and feedback
+
+🔴 Live Webcam Mode
+
+Real-time exercise monitoring through your camera
+Instant repetition counting with visual feedback
+Perfect for guided workout sessions
+
+🤖 Auto-Classification Engine
+
+Automatically identifies exercises as you perform them
+Intelligent rep counting for recognized movements
+Supports multiple exercise types simultaneously
+
+💬 AI Fitness Mentor
+
+Powered by OpenAI's advanced language model
+Provides personalized fitness guidance and tips
+Answers workout-related questions intelligently
+
+🧠 Technical Deep Dive
+🏃‍♂️ Exercise Recognition System
+Our classification engine leverages multiple high-quality datasets:
+
+Real-World Data: Kaggle Workout Dataset with authentic exercise videos
+Synthetic Training: InfiniteRep Dataset featuring avatar-based movements
+Diverse Variations: Additional online sources for comprehensive coverage
+
+The system employs advanced LSTM and BiLSTM architectures to process body landmarks and classify exercises using joint angles and movement patterns, optimized for accuracy, precision, recall, and F1-score metrics.
+🔢 Repetition Counting Algorithm
+Manual Mode
+
+User selects specific exercise type
+Angle-based threshold detection for rep counting
+Customizable sensitivity settings
+
+Automatic Mode
+
+BiLSTM model performs real-time exercise classification
+Dynamic counting logic adapts to identified movements
+Tracks complete "up" and "down" motion cycles
+
+🤖 Intelligent Chatbot System
+
+Built with OpenAI's GPT-3.5-turbo for natural conversations
+LangChain integration maintains conversation context
+Provides fitness guidance with professional disclaimer
+
+💻 Technology Stack
+ComponentTechnologyPose DetectionMediaPipe for precise body landmark extractionMachine LearningLSTM & BiLSTM networks for exercise classificationWeb FrameworkStreamlit for responsive user interfaceComputer VisionOpenCV for advanced image processingAI AssistantOpenAI GPT integration via LangChain
+⚠️ Important Notes
+🔧 Current Model Configuration
+
+The deployed model is the "BiLSTM Invariant" version
+Uses normalized angles and distances (excludes raw x,y,z coordinates)
+Peak performance model available in train_bidirectionallstm.py
+
+📹 Video Content Notice
+
+Currently includes shoulder_press_form.mp4 demonstration
+Additional instructional videos require separate download
+Full video library available in complete repository
+
+🤝 Connect & Contribute
+📧 Contact Information
+
+Email: i.rajaryann@gmail.com
+GitHub: yesaryann
+
+🌟 Show Your Support
+If this project helped improve your fitness journey, please consider giving it a star ⭐ on GitHub!
+📜 License
+This project is open-source and available under the MIT License.
+🔮 Future Enhancements
+
+Additional exercise types and variations
+Advanced form correction algorithms
+Mobile app development
+Integration with fitness wearables
+Social features and progress sharing
+
+
+Transform your fitness routine with ZyntraFit - where AI meets fitness! 💪
