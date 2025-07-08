@@ -6,10 +6,7 @@
 
 Welcome to **ZyntraFit** – the future of fitness! This innovative AI-driven platform combines cutting-edge Computer Vision, Advanced Pose Detection, and Deep Learning technologies to revolutionize your workout experience by providing intelligent repetition monitoring and real-time exercise analysis.
 
----
 
-## 🚀 Live Demo
-Experience ZyntraFit in action: **[Watch Demo Video](#)**
 
 ---
 
