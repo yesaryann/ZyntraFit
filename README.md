@@ -1,8 +1,7 @@
-Here's your full README file formatted in Markdown, ready to copy-paste into your `README.md`:
 
----
 
-```markdown
+
+
 # 🏋️‍♂️ ZyntraFit - Smart Fitness Coach with Automated Movement Recognition & Rep Tracking
 
 Welcome to **ZyntraFit** – the future of fitness! This innovative AI-driven platform combines cutting-edge Computer Vision, Advanced Pose Detection, and Deep Learning technologies to revolutionize your workout experience by providing intelligent repetition monitoring and real-time exercise analysis.
@@ -235,7 +234,3 @@ This project is open-source and available under the **MIT License**.
 
 **Transform your fitness routine with ZyntraFit – where AI meets fitness! 💪**
 
-```
-
-Let me know if you’d like a version with badges, images, or formatting for deployment platforms (like Streamlit Share, Docker, etc).
-```
