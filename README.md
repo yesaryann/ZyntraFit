@@ -1,0 +1,2 @@
+# ZyntraFit
+A ai fitnesscoach
