@@ -44,7 +44,7 @@ opencv-python==4.9.0.80
 opt-einsum==3.3.0
 optree==0.11.0
 optuna==3.6.1
-packaging==24.0
+
 pandas==2.2.2
 protobuf==4.25.3
 pyasn1==0.6.0
