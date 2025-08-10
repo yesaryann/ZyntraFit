@@ -3,7 +3,7 @@ import streamlit as st
 import cv2
 import tempfile
 import ExerciseAiTrainer as exercise
-from chatbot_ui import chat_ui
+from chatbot import chat_ui
 import time
 
 def main():
