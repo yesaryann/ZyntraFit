@@ -23,7 +23,8 @@ idna==3.7
 importlib-metadata==7.1.0
 importlib-resources==6.4.0
 jax==0.4.28
-jaxlib==0.4.28
+jaxlib>=0.4.28
+
 joblib==1.4.2
 keras==3.3.3
 kiwisolver==1.4.5
