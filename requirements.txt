@@ -21,7 +21,7 @@ greenlet==3.0.3
 grpcio==1.64.0
 h5py==3.11.0
 idna==3.7
-importlib-metadata==7.1.0
+
 importlib-resources==6.4.0
 jax==0.4.28
 jaxlib>=0.4.28
