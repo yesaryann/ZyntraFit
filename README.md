@@ -15,7 +15,7 @@ Welcome to **ZyntraFit** – the future of fitness! This innovative AI-driven pl
 This application is built upon rigorous academic research:
 
 - **Paper:** "Real-Time Fitness Exercise Classification and Counting from Video Frames"
-- **Dataset:** [Kaggle - Real-Time Exercise Recognition Dataset](https://www.kaggle.com/datasets)
+
 - **Research Link:** [ArXiv Paper](https://arxiv.org)
 
 ---
